@@ -24,7 +24,9 @@ export function TransactionsTable() {
                 {new Intl.NumberFormat('pt-BR', {
                   style: 'currency',
                   currency: 'BRL'
-                }).format(transaction.amount)}
+                }).format((transaction.type === 'deposit')
+                  ? transaction.amount
+                  : transaction.amount * -1)}
               </td>
               <td>{transaction.category}</td>
               <td>
